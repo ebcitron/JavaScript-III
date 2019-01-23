@@ -21,7 +21,7 @@ function GameObject(objStuff){
   }
 
   GameObject.prototype.destroy = function(){
-    return 'Object was removed from the game.';
+    return `${this.name} was removed from the game.`;
   }
 
 
@@ -38,12 +38,12 @@ function CharacterStats(charStuff){
   this.name = charStuff.name;
   GameObject.call(this, charStuff);
 }
-
+CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function(){
   return `${this.name} took damage.`;
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
